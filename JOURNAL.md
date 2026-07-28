@@ -31,7 +31,7 @@ Result: core/services/review_service.py     135    105    22%   68-79, 98-194, 2
 
 This shows a 22% coverage.
 
-**PLAN.md link:** [link to PLAN.md in your fork]
+**PLAN.md link:** https://github.com/anuvanuzhat/pathreview/blob/test/109-review-service-coverage/PLAN.md
 
 **Walkthrough video (recommended):** [link to your Loom video, ≤2 min — recommended, not graded]
 
