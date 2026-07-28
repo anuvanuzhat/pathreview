@@ -18,3 +18,24 @@ This is a Tier 2 issue, which fits since I wanted a bit more challenge than a Ti
 **Setup confirmation:** [Yes ] App runs locally at localhost:5173
 
 **Cohort ledger:** [Yes ] Issue added to cohort ledger
+
+**REPRODUCTION NOTE**
+I ran this line: pytest --cov=core.services.review_service --cov-report=term-missing tests/unit/test_review_service.py
+
+Result: core/services/review_service.py     135    105    22%   68-79, 98-194, 202-279, 288, 323, 369-390
+
+This shows a 22% coverage.
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** [link to commit documenting the reproduced issue]
+
+**Reproduction summary:**
+[1–2 sentences: How did you reproduce the issue? What did you observe?]
+
+**PLAN.md link:** [link to PLAN.md in your fork]
+
+**Walkthrough video (recommended):** [link to your Loom video, ≤2 min — recommended, not graded]
+
+**Blockers or open questions:**
+[Anything you're still uncertain about going into Week 9, or leave blank]
