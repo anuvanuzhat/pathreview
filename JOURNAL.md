@@ -37,3 +37,36 @@ This shows a 22% coverage.
 
 **Blockers or open questions:**
 [Anything you're still uncertain about going into Week 9, or leave blank]
+
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+The progress I had when completiting for Week 8. A completed Plan.md to figure out what I need to fix.
+
+**Next steps:**
+Adding tests for `process_review`'s early-return and failure branches (review not found, profile not found, safety check failure, unhandled exception mid-pipeline), then direct tests for `_run_ingestion_pipeline` and `_run_safety_checks` including the confidence-boundary and multi-source-failure edge cases from the plan, then re-running coverage to confirm it's comfortably above 40%.
+
+**Blockers:**
+None.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** https://github.com/ascherj/pathreview/pull/815
+
+**Branch:** test/109-review-service-coverage
+
+**What you built:**
+Fixed 13 broken test mocks in `test_review_service.py` (root cause: `AsyncMock` used for synchronous result-object methods) and added new tests covering `process_review`'s success, partial-failure, and full-failure paths plus its helper functions directly. While writing tests for the ingestion pipeline, found and fixed a real bug in `review_service.py`: `IngestedSource` was being constructed with a `raw_data` kwarg that doesn't exist on the model, so every ingestion attempt was silently failing.
+
+**Tests added or updated:**
+`tests/unit/test_review_service.py` — fixed the mocking pattern in all 19 original tests; added tests for `process_review`'s happy path (status=complete, sections/overall_score populated), review-not-found and profile-not-found early returns, safety-check failure, and unhandled-exception handling; added direct tests for `_run_ingestion_pipeline` (all sources present, no sources present, one source failing while others succeed, multiple sources failing while one succeeds) and `_run_safety_checks` (missing/empty sections, missing required fields, confidence out of range, and confidence exactly at the 0 and 1 boundaries). Coverage on `core/services/review_service.py` went from 22% to 94%.
+
+**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
+(Note: `make check` and `make lint`/`make typecheck` show pre-existing failures unrelated to this change — 6 pre-existing mypy missing-annotation errors and 173 pre-existing ruff lint errors, all in files/lines untouched by this PR, confirmed via `git stash` and scoped `ruff check` on just the two changed files. Documented in full in the PR's Notes for Reviewers.)
+
+**Draft PR feedback received from:** none — ran out of time this week to get a peer review before the deadline
