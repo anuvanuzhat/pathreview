@@ -70,3 +70,44 @@ Fixed 13 broken test mocks in `test_review_service.py` (root cause: `AsyncMock` 
 (Note: `make check` and `make lint`/`make typecheck` show pre-existing failures unrelated to this change — 6 pre-existing mypy missing-annotation errors and 173 pre-existing ruff lint errors, all in files/lines untouched by this PR, confirmed via `git stash` and scoped `ruff check` on just the two changed files. Documented in full in the PR's Notes for Reviewers.)
 
 **Draft PR feedback received from:** none — ran out of time this week to get a peer review before the deadline
+
+
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [X ] No — still awaiting review
+
+**Summary of feedback:**
+[What did reviewers comment on? Or note that no review came in.]
+No review came in.
+
+**How you responded:**
+[What changes did you make, or what did you reply? If no feedback,
+leave blank.]
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+There was an issue that I had to fix that was bigger than what I originally thought would be included with the problem I had picked.
+I needed to increase the coverage of my tests above 40% so I assumed writing more tests but I also had to fix a bug within the actual code as well.
+The bug wasn't that large it just had to do more so with a small syntax and logic error that prevented some tests from passing but it affected the code
+coverage of the review_service file.
+This meant that I had to figure out what the failing part of the code was and then write the tests to increase the coverage. It was just more work
+than I had anticpated when I originally chose the issue.
+
+**What did you learn about working in a large codebase?**
+You have to spend a lot more time familariziing yourself with the code. I used AI a lot to explain certain files to me and how componenets worked together.
+When you write your own project from scratch the planning is already kind of done in your head or preplanned. You're more familiar with which files and classes work together. When you are contributing to someone elses code there's a lot that is thrown at you and it is sort of overwhelming. You also have to be more careful in terms of what you are pushing and that's why we have PR. The code is more carefully reviewed and merged when its a large codebase vs your own personal project.
+
+**How did AI tools help — and where did they fall short?**
+AI was most useful to explain concepts I didn't understand or when it came to explaining code to me. For example I had a hard time realizing what was wrong with the code coverage until Claude had pointed out why the tests were failing. I used it a lot to summarize methods or tell me what was going on in regards to files and the structure of the code. Honeslty AI didn't really let me down too much for this course. It was able to implement code when I needed and also have it explained to me really well.
+
+**What would you do differently if you started over?**
+I chose a tier 2 issue because I thought it would be a good balance. But I chose it in a topic I feel more strongly about which are tests. I don't like writing them but I think that test coverage is an easier topic which I know more about. Im curious to see how I would feel about doing a tier 1 issue for an issue category I'm less confident in. Like for example fixing a bug in the code myself or writing code logic. I think it would have given me more room to grow versus sitcking something I am more comfortable with. 
+
+**What are you most proud of from this module?**
+I am most proud of contributing to an open source large database. It was my first taste of what I'll probably mostly be doing in the real world so it was really cool to see what software engineers actually do on a large scale rather than just coding for a class project or a personal project.
